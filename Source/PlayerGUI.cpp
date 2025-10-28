@@ -1,4 +1,4 @@
-#include "PlayerGUI.h"
+﻿#include "PlayerGUI.h"
 
 void PlayerGUI::prepareToPlay(int samplesPerBlockExpected, double sampleRate)
 {
@@ -74,7 +74,7 @@ PlayerGUI::PlayerGUI()
 
 void PlayerGUI::resized()
 {
-    int y = 50; 
+    int y = 50;
 
     loadButton.setBounds(20, y, 100, 40);
     restartButton.setBounds(130, y, 80, 40);
@@ -105,9 +105,9 @@ void PlayerGUI::buttonClicked(juce::Button* button)
                 if (file.existsAsFile())
                 {
                     playerAudio.loadFile(file);
-                    playerAudio.play();             
-                    isPlaying = true;               
-                    playPauseButton.setButtonText("Pause"); 
+                    playerAudio.play();
+                    isPlaying = true;
+                    playPauseButton.setButtonText("Pause");
                 }
             });
     }
@@ -155,7 +155,7 @@ void PlayerGUI::buttonClicked(juce::Button* button)
             loopEnabled ? Colours::green : Colours::lightgrey);
     }
 
-    
+
     if (button == &muteButton)
     {
         if (isMuted)
@@ -172,7 +172,7 @@ void PlayerGUI::buttonClicked(juce::Button* button)
         isMuted = !isMuted;
     }
 
-    
+
     if (button == &loopButton)
     {
         isLooping = !isLooping;
@@ -199,3 +199,4 @@ void PlayerGUI::sliderValueChanged(juce::Slider* slider)
     if (slider == &volumeSlider)
         playerAudio.setGain((float)slider->getValue());
 }
+

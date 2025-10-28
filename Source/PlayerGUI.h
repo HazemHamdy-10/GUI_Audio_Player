@@ -29,12 +29,12 @@ private:
     juce::TextButton playPauseButton{ "Play" };
     juce::TextButton startButton{ "|< Start" };
     juce::TextButton endButton{ "End >|" };
-    juce::TextButton muteButton{ "Mute" };      
-    juce::TextButton loopButton{ "Loop Off" };   
+    juce::TextButton muteButton{ "Mute" };
+    juce::TextButton loopButton{ "Loop Off" };
 
     // Sliders
     juce::Slider volumeSlider;
-    
+
 
     std::unique_ptr<juce::FileChooser> fileChooser;
 
@@ -44,9 +44,10 @@ private:
     bool loopEnabled = false;
     // States
     bool isPlaying = false;
-    bool isMuted = false;          
-    bool isLooping = false;        
-    float previousVolume = 0.5f;   
+    bool isMuted = false;
+    bool isLooping = false;
+    float previousVolume = 0.5f;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PlayerGUI)
 };
+
