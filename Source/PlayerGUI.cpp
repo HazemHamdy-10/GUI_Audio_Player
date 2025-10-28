@@ -39,7 +39,7 @@ void PlayerGUI::paint(juce::Graphics& g)
     g.setColour(juce::Colours::white);
     g.setFont(juce::Font("Arial", 26.0f, juce::Font::bold));
     auto titleArea = juce::Rectangle<int>(0, 10, getWidth(), 40);
-    g.drawText("JUCE Audio Player", titleArea, juce::Justification::centred, true);
+    g.drawText("Simple Audio Player", titleArea, juce::Justification::centred, true);
 
 }
 
