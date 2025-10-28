@@ -60,7 +60,7 @@ PlayerGUI::PlayerGUI()
 
     playPauseButton.setColour(TextButton::buttonColourId, Colours::green);
     stopButton.setColour(TextButton::buttonColourId, Colours::red);
-    restartButton.setColour(TextButton::buttonColourId, Colours::orange);
+    restartButton.setColour(TextButton::buttonColourId, Colours::blueviolet);
     loadButton.setColour(TextButton::buttonColourId, Colours::cornflowerblue);
     startButton.setColour(TextButton::buttonColourId, Colours::darkcyan);
     endButton.setColour(TextButton::buttonColourId, Colours::darkcyan);
@@ -152,7 +152,7 @@ void PlayerGUI::buttonClicked(juce::Button* button)
     {
         loopEnabled = !loopEnabled;
         loopButton.setColour(TextButton::buttonColourId,
-            loopEnabled ? Colours::green : Colours::lightgrey);
+            loopEnabled ? Colours::green : Colours::grey);
     }
 
 
