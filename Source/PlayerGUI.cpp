@@ -76,16 +76,16 @@ void PlayerGUI::resized()
 {
     int y = 50;
 
-    loadButton.setBounds(20, y, 100, 40);
-    restartButton.setBounds(130, y, 80, 40);
-    stopButton.setBounds(220, y, 80, 40);
-    playPauseButton.setBounds(310, y, 80, 40);
-    startButton.setBounds(400, y, 100, 40);
-    endButton.setBounds(510, y, 100, 40);
-    muteButton.setBounds(620, y, 80, 40);
-    loopButton.setBounds(710, y, 100, 40);
+    loadButton.setBounds(20, 60, 100, 40);
+    restartButton.setBounds(130, 60, 80, 40);
+    stopButton.setBounds(220, 60, 80, 40);
+    playPauseButton.setBounds(310, 60, 80, 40);
+    startButton.setBounds(400, 60, 100, 40);
+    endButton.setBounds(510, 60, 100, 40);
+    muteButton.setBounds(620, 60, 80, 40);
+    loopButton.setBounds(710, 60, 100, 40);
 
-    volumeSlider.setBounds(20, 120, getWidth() - 40, 30);
+    volumeSlider.setBounds(20, 130, getWidth() - 40, 30);
 }
 
 PlayerGUI::~PlayerGUI() {}
