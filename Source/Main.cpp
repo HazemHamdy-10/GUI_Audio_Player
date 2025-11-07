@@ -1,48 +1,85 @@
-#include <JuceHeader.h>   // Main.cpp
+#include <JuceHeader.h>
 #include "MainComponent.h"
 
-// Our application class
-class SimpleAudioPlayer : public juce::JUCEApplication
+class ProfessionalAudioPlayerApplication : public juce::JUCEApplication
 {
 public:
-    const juce::String getApplicationName() override { return "Simple Audio Player"; }
-    const juce::String getApplicationVersion() override { return "1.0"; }
+    
+    ProfessionalAudioPlayerApplication() {}
 
-    void initialise(const juce::String&) override
+    const juce::String getApplicationName() override
     {
-        // Create and show the main window
-        mainWindow = std::make_unique<MainWindow>(getApplicationName());
+        return "Professional Audio Player Pro";
+    }
+
+    const juce::String getApplicationVersion() override
+    {
+        return "3.0";
+    }
+
+    bool moreThanOneInstanceAllowed() override
+    {
+        return true;
+    }
+
+    void initialise(const juce::String& commandLine) override
+    {
+        
+        mainWindow.reset(new MainWindow(getApplicationName()));
     }
 
     void shutdown() override
     {
-        mainWindow = nullptr; 
+        mainWindow = nullptr; // (deletes our window)
     }
 
-private:
-    // The main window of the app
+    void systemRequestedQuit() override
+    {
+       
+        quit();
+    }
+
+    void anotherInstanceStarted(const juce::String& commandLine) override
+    {
+        
+    }
+
     class MainWindow : public juce::DocumentWindow
     {
     public:
         MainWindow(juce::String name)
             : DocumentWindow(name,
-                juce::Colours::lightgrey,
+                Colour(0xff0f0f1e),
                 DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar(true);
-            setContentOwned(new MainComponent(), true); // MainComponent = our UI + logic
-            centreWithSize(1000, 500);
+            setContentOwned(new MainComponent(), true);
+
+#if JUCE_IOS || JUCE_ANDROID
+            setFullScreen(true);
+#else
+            setResizable(true, true);
+            centreWithSize(getWidth(), getHeight());
+#endif
+
             setVisible(true);
         }
 
         void closeButtonPressed() override
         {
-            juce::JUCEApplication::getInstance()->systemRequestedQuit();
+            
+            JUCEApplication::getInstance()->systemRequestedQuit();
         }
+
+        
+    private:
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainWindow)
     };
 
+private:
     std::unique_ptr<MainWindow> mainWindow;
 };
 
-// This macro starts the app
-START_JUCE_APPLICATION(SimpleAudioPlayer)
+//==============================================================================
+// This macro generates the main() routine that launches the app.
+START_JUCE_APPLICATION(ProfessionalAudioPlayerApplication)
